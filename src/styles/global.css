@@ -1,0 +1,145 @@
+/* Global Styles */
+:root {
+  --primary-color: #DAA520; /* Goldenrod - Updated according to NourVeda logo theme */
+  --primary-hover-color: #B8860B; /* Dark Goldenrod */
+  --accent-color: #d32f2f; /* Red for emphasis (Spices) */
+  --secondary-color: #f5f5f5;
+  --text-color: #333;
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--text-color);
+  line-height: 1.6;
+  background-color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn:hover {
+  background-color: var(--primary-hover-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* --- Reusable Components (Task 4: Similar Approach) --- */
+
+/* Parallax Section */
+.parallax-section {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 60vh; /* Default height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  color: #fff;
+}
+
+/* Hero Content Box */
+.hero-content {
+  max-width: 800px;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  font-family: serif;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Content Section (White Background) */
+.content-section {
+  background-color: #fff;
+  padding: 5rem 2rem;
+  text-align: center;
+  color: #333;
+}
+
+.content-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.content-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color); /* Use theme color for headings */
+}
+
+.content-section p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #555;
+  line-height: 1.8;
+}
+
+/* Competency Grid (Reusable) */
+.competency-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+  text-align: left;
+}
+
+.competency-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  border-top: 4px solid var(--primary-color); /* Theme accent */
+}
+
+.competency-card:hover {
+  transform: translateY(-5px);
+}
+
+.competency-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}

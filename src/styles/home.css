@@ -1,0 +1,110 @@
+/* Home Page Styles */
+*{
+  padding: 0;
+  margin: 0;
+  
+}
+.home-page {
+  /* No padding on container to allow full width sections */
+}
+
+/* Common Parallax Mixin */
+.parallax-section {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 80vh; /* Takes up most of the screen */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Hero Section */
+.hero {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=2070&auto=format&fit=crop');
+  color: #fff;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay for readability */
+  border-radius: 8px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  font-family: serif; /* Elegant font */
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Content Sections (White Background) */
+.content-section {
+  background-color: #fff;
+  padding: 5rem 2rem;
+  text-align: center;
+  color: #333;
+}
+
+.content-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.content-section h2 {
+  font-size: 2.5rem;
+  color: #c5a075; /* Matching Navbar Color */
+  margin-bottom: 1.5rem;
+  font-family: serif;
+}
+
+.content-section p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+/* Secondary Parallax Section */
+.feature-parallax {
+  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1532336414038-cf19250c5757?q=80&w=2070&auto=format&fit=crop');
+  min-height: 60vh;
+}
+
+/* Competency Grid Updates */
+.competency-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+  text-align: left;
+}
+
+.competency-card {
+  background: #f9f9f9;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+  border-top: 4px solid #c5a075;
+}
+
+.competency-card:hover {
+  transform: translateY(-5px);
+}
+
+.competency-card h3 {
+  color: #c5a075;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}

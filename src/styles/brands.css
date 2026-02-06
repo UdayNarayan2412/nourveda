@@ -1,0 +1,29 @@
+/* Brands Page Styles */
+
+.brands-hero {
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1599707367072-cd6ad66aa1a8?q=80&w=2070&auto=format&fit=crop');
+  min-height: 70vh;
+}
+
+.vandu-parallax {
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=2070&auto=format&fit=crop');
+  min-height: 50vh;
+}
+
+.fryd-parallax {
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1621939514649-280e2ee25f60?q=80&w=2070&auto=format&fit=crop'); /* Fries/Snack generic */
+  min-height: 50vh;
+}
+
+.brand-detail {
+  background: #fff;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.brand-detail h3 {
+  color: #c5a075;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,167 @@
+/* PreFooter Styles */
+
+.pre-footer {
+  width: 100%;
+}
+
+/* --- Contact Banner Section --- */
+.contact-banner {
+  background-color: #a9aeb5; /* Grayish blue/concrete color */
+  background-image: url('https://images.unsplash.com/photo-1550989460-0adf9ea622e2?q=80&w=2000&auto=format&fit=crop'); /* Concrete texture */
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 4rem 2rem;
+  color: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 400px;
+}
+
+/* Walnut Images Simulation using pseudo-elements or background layers */
+/* For simplicity and robustness, we'll use a linear gradient mask or just keep the texture */
+.contact-banner::before {
+  content: '';
+  position: absolute;
+  left: -50px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 200px;
+  height: 200px;
+  background-image: url('https://plus.unsplash.com/premium_photo-1675237626154-7e8c3882744c?q=80&w=600&auto=format&fit=crop'); /* Walnut */
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  border-radius: 50%;
+  display: none; /* Hidden on mobile */
+}
+
+.contact-banner::after {
+  content: '';
+  position: absolute;
+  right: -50px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 200px;
+  height: 200px;
+  background-image: url('https://plus.unsplash.com/premium_photo-1675237626154-7e8c3882744c?q=80&w=600&auto=format&fit=crop'); /* Walnut */
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  border-radius: 50%;
+  display: none; /* Hidden on mobile */
+}
+
+@media (min-width: 1024px) {
+  .contact-banner::before,
+  .contact-banner::after {
+    display: block;
+  }
+}
+
+.contact-details-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  width: 100%;
+  z-index: 1;
+  gap: 2rem;
+  text-align: left;
+}
+
+.contact-col {
+  flex: 1;
+  min-width: 250px;
+  padding: 0 1rem;
+}
+
+.contact-col h3 {
+  font-family: serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #fcfafa;
+  font-weight: bold;
+}
+
+.contact-col p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #faf8f8;
+}
+
+/* --- Promise Section --- */
+.promise-section {
+  background-color: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.promise-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.promise-text {
+  flex: 2;
+  text-align: left;
+}
+
+.promise-text h3 {
+  color: #c5a075; /* Gold/Brown */
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.promise-text p {
+  font-size: 1.1rem;
+  color: #c5a075; /* Using the same color as title based on image look, or slightly darker */
+  line-height: 1.6;
+  font-family: serif; /* Elegant font */
+}
+
+.promise-logo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-circle {
+  width: 150px;
+  height: 150px;
+  border: 2px solid #c5a075;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  color: #c5a075;
+  font-weight: bold;
+  font-size: 0.9rem;
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  background-image: url(../assets/logo.jpeg);
+}
+
+@media (max-width: 768px) {
+  .promise-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .promise-text {
+    text-align: center;
+  }
+}
