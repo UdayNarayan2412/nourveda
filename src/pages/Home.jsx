@@ -35,13 +35,10 @@ const Home = () => {
 
       {/* Task 3: Second Parallax Section */}
       <section className="parallax-section feature-parallax">
-         <section className="parallax-section hero">
         <FadeUp className="hero-content" duration={0.8}>
           <h1>Quality And Flavour Bundled In Every Pack</h1>
           {/* <p>Experience the finest in premium dry fruits and exotic spices.</p> */}
         </FadeUp>
-      </section>  
-        {/* Optional content here, or just visual break */}
       </section>
 
       {/* Competency Section */}
