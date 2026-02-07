@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { db } from '../config/firebase';
+import { collection, addDoc } from 'firebase/firestore';
 import '../styles/checkout.css';
 
 const CheckoutForm = () => {
   const { state, dispatch } = useCart();
   const { currentUser } = useAuth();
   const navigate = useNavigate();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   const [formData, setFormData] = useState({
     fullName: '',
@@ -23,32 +26,42 @@ const CheckoutForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!currentUser) {
       alert('Please login to place an order');
       return;
     }
-    
-    // Create order object
-    const order = {
-      id: Date.now(),
-      items: state.items,
-      total: total,
-      date: new Date().toISOString(),
-      shippingDetails: formData,
-      status: 'Processing'
-    };
 
-    // Save to local storage for now (mock backend)
-    const existingOrders = JSON.parse(localStorage.getItem(`orders_${currentUser.uid}`)) || [];
-    localStorage.setItem(`orders_${currentUser.uid}`, JSON.stringify([order, ...existingOrders]));
-
-    // Clear cart
-    dispatch({ type: 'CLEAR_CART' });
+    setIsSubmitting(true);
     
-    // Redirect
-    navigate('/orders');
+    try {
+      // Create order object
+      const order = {
+        userId: currentUser.uid,
+        userEmail: currentUser.email,
+        items: state.items,
+        total: total,
+        date: new Date().toISOString(),
+        shippingDetails: formData,
+        status: 'Processing',
+        createdAt: new Date()
+      };
+
+      // Save to Firestore
+      await addDoc(collection(db, 'orders'), order);
+
+      // Clear cart
+      dispatch({ type: 'CLEAR_CART' });
+      
+      // Redirect
+      navigate('/orders');
+    } catch (error) {
+      console.error("Error placing order: ", error);
+      alert("Failed to place order. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (state.items.length === 0) {
@@ -87,8 +100,8 @@ const CheckoutForm = () => {
             <p>Cash on Delivery (Default)</p>
          </div>
 
-         <button type="submit" className="place-order-btn">
-           Place Order - ₹{total.toFixed(2)}
+         <button type="submit" className="place-order-btn" disabled={isSubmitting}>
+           {isSubmitting ? 'Placing Order...' : `Place Order - ₹${total.toFixed(2)}`}
          </button>
        </form>
 

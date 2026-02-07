@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Clock, ChevronDown, ChevronUp, Package, AlertCircle } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import { db } from '../config/firebase';
+import { collection, query, where, getDocs } from 'firebase/firestore';
 import '../styles/orders.css';
 
 const OrdersPage = () => {
@@ -11,15 +13,32 @@ const OrdersPage = () => {
   const [expandedOrder, setExpandedOrder] = useState(null);
 
   useEffect(() => {
-    if (currentUser) {
-      try {
-        const savedOrders = JSON.parse(localStorage.getItem(`orders_${currentUser.uid}`)) || [];
-        setOrders(savedOrders);
-      } catch (error) {
-        console.error("Failed to load orders:", error);
+    const fetchOrders = async () => {
+      if (currentUser) {
+        try {
+          const q = query(
+            collection(db, 'orders'),
+            where('userId', '==', currentUser.uid)
+          );
+          
+          const querySnapshot = await getDocs(q);
+          const fetchedOrders = querySnapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data()
+          }));
+
+          // Sort by date descending (newest first)
+          fetchedOrders.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+          setOrders(fetchedOrders);
+        } catch (error) {
+          console.error("Failed to load orders:", error);
+        }
       }
-    }
-    setLoading(false);
+      setLoading(false);
+    };
+
+    fetchOrders();
   }, [currentUser]);
 
   const toggleOrder = (id) => {
