@@ -7,7 +7,7 @@
 /* --- Contact Banner Section --- */
 .contact-banner {
   background-color: #a9aeb5; /* Grayish blue/concrete color */
-  background-image: url('https://images.unsplash.com/photo-1550989460-0adf9ea622e2?q=80&w=2000&auto=format&fit=crop'); /* Concrete texture */
+  background-image: url(../assets/wyxina-tresse-IKki8I84WyI-unsplash.jpg); /* Concrete texture */
   background-blend-mode: multiply;
   background-size: cover;
   background-position: center;

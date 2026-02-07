@@ -1,6 +1,7 @@
 import '../styles/home.css';
 import { Link } from 'react-router-dom';
 import { FadeUp, StaggerContainer, StaggerItem, FadeIn } from '../components/Animations';
+import Testimonials from '../components/Testimonials';
 
 const Home = () => {
   return (
@@ -10,6 +11,10 @@ const Home = () => {
         <FadeUp className="hero-content" duration={0.8}>
           <h1>Luxury in Every Bite: Premium Dry Fruits and Spices</h1>
           <p>Experience the finest in premium dry fruits and exotic spices.</p>
+          <div className="hero-buttons">
+            <Link to="/shop" className="btn hero-btn">Product</Link>
+            <Link to="/about" className="btn hero-btn outline">About Us</Link>
+          </div>
         </FadeUp>
       </section>
 
@@ -64,6 +69,9 @@ const Home = () => {
           </StaggerContainer>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <Testimonials />
     </div>
   );
 };
