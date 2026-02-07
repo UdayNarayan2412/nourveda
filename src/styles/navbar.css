@@ -3,13 +3,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
   background-color: var(--secondary-color);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
-  height: 70px;
+  height: 90px;
 }
 
 .navbar-logo {
@@ -23,7 +23,7 @@
 }
 
 .navbar-logo img {
-  height: 40px;
+  height: 70px;
   width: auto;
   margin-right: 10px;
 }
@@ -176,7 +176,7 @@
 
   .navbar-links {
     position: fixed;
-    top: 70px;
+    top: 90px;
     left: 0;
     right: 0;
     background-color: #fff;
@@ -200,7 +200,7 @@
 
   .profile-dropdown {
     position: fixed;
-    top: 70px;
+    top: 90px;
     right: 1rem;
     width: 200px;
   }
