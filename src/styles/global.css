@@ -1,10 +1,10 @@
 /* Global Styles */
 :root {
-  --primary-color: #DAA520; /* Goldenrod - Updated according to NourVeda logo theme */
-  --primary-hover-color: #B8860B; /* Dark Goldenrod */
-  --accent-color: #d32f2f; /* Red for emphasis (Spices) */
-  --secondary-color: #f5f5f5;
-  --text-color: #333;
+  --primary-color: #8B3A45; /* Deep Berry Red - Exotic and Rich */
+  --primary-hover-color: #6B2A33; /* Darker Berry */
+  --accent-color: #D4AF37; /* Antique Gold for luxury highlights */
+  --secondary-color: #F6F1E7; /* Warm Off-White/Cream */
+  --text-color: #2C2C2C; /* Softer Black */
   --font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
@@ -18,7 +18,7 @@ body {
   font-family: var(--font-family);
   color: var(--text-color);
   line-height: 1.6;
-  background-color: #fff;
+  background-color: var(--secondary-color);
 }
 
 .container {
@@ -93,7 +93,9 @@ img {
 
 /* Content Section (White Background) */
 .content-section {
-  background-color: #fff;
+  background-color: #F6F1E7;
+
+
   padding: 5rem 2rem;
   text-align: center;
   color: #333;

@@ -19,7 +19,7 @@ const Home = () => {
       </section>
 
       {/* Content Section (Scrolls over) */}
-      <section className="content-section">
+      <section className="content-section" >
         <div className="content-container">
           <FadeUp>
             <h2>Welcome to NourVeda</h2>

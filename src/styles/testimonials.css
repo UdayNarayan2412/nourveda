@@ -25,6 +25,12 @@
   position: relative;
 }
 
+.carousel-track-container {
+  width: 100%;
+  max-width: 900px;
+  overflow: hidden; /* Hide overflow during slide transitions */
+}
+
 .testimonial-card {
   display: flex;
   flex-direction: row;
@@ -32,9 +38,14 @@
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  max-width: 900px;
   width: 100%;
   min-height: 300px;
+  cursor: grab; /* Indicate draggable */
+  touch-action: pan-y; /* Allow vertical scroll but capture horizontal swipe */
+}
+
+.testimonial-card:active {
+  cursor: grabbing;
 }
 
 .testimonial-image {

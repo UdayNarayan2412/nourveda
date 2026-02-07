@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FadeUp } from './Animations';
 import '../styles/testimonials.css';
 
@@ -49,6 +50,14 @@ const Testimonials = () => {
 
   const { name, text, image } = TESTIMONIALS[currentIndex];
 
+  const handleDragEnd = (event, info) => {
+    if (info.offset.x < -50) {
+      nextTestimonial();
+    } else if (info.offset.x > 50) {
+      prevTestimonial();
+    }
+  };
+
   return (
     <section className="testimonials-section">
       <div className="testimonials-container">
@@ -61,15 +70,31 @@ const Testimonials = () => {
             <ChevronLeft size={24} />
           </button>
 
-          <div className="testimonial-card">
-            <div className="testimonial-image">
-              <img src={image} alt={name} />
-            </div>
-            <div className="testimonial-content">
-              <Quote size={40} className="quote-icon" />
-              <p className="testimonial-text">{text}</p>
-              <h4 className="testimonial-author">{name}</h4>
-            </div>
+          <div className="carousel-track-container">
+            <AnimatePresence mode="wait">
+              <motion.div 
+                key={currentIndex}
+                className="testimonial-card"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.2}
+                onDragEnd={handleDragEnd}
+                whileTap={{ cursor: "grabbing" }}
+              >
+                <div className="testimonial-image">
+                  <img src={image} alt={name} />
+                </div>
+                <div className="testimonial-content">
+                  <Quote size={40} className="quote-icon" />
+                  <p className="testimonial-text">{text}</p>
+                  <h4 className="testimonial-author">{name}</h4>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
 
           <button className="nav-btn next" onClick={nextTestimonial} aria-label="Next Testimonial">
